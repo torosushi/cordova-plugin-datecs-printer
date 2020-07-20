@@ -664,9 +664,9 @@ public class Printer {
                         tbuf[var32++] = mode;
                     } else if(tmp == HH) {
                         if(set) {
-                            mode = (byte)(mode | 64);
+                            mode = (byte)(mode | 56);
                         } else {
-                            mode &= -65;
+                            mode &= -57;
                         }
 
                         var32 = pos - 1;
