@@ -574,6 +574,7 @@ public class Printer {
         int SMALL = "s".hashCode();
         int BOLD = "b".hashCode();
         int HIGH = "h".hashCode();
+        int HH = "hh".hashCode();
         int WIDE = "w".hashCode();
         int UNDERLINE = "u".hashCode();
         int ITALIC = "i".hashCode();
@@ -661,7 +662,18 @@ public class Printer {
                         tbuf[var32++] = 27;
                         tbuf[var32++] = 33;
                         tbuf[var32++] = mode;
-                    } else if(tmp == WIDE) {
+                    } else if(tmp == HH) {
+                        if(set) {
+                            mode = (byte)(mode | 56);
+                        } else {
+                            mode &= -57;
+                        }
+
+                        var32 = pos - 1;
+                        tbuf[var32++] = 27;
+                        tbuf[var32++] = 33;
+                        tbuf[var32++] = mode;
+                    }else if(tmp == WIDE) {
                         if(set) {
                             mode = (byte)(mode | 32);
                         } else {
